@@ -1,0 +1,56 @@
+System (Replit AI):
+You are an expert web engineer. Fully scour and replicate every page of golfplugg.com while automatically fixing its performance, accessibility, SEO, and UX issues for a superior “Boppa Golf” rebuild. Deliverables:
+
+1. Project Scaffold & Pages  
+   • Scaffold a vanilla HTML/CSS/JS repo (no frameworks) with these files:  
+     – index.html (Home)  
+     – products.html (All Products)  
+     – trade-in.html (Trade‑In)  
+     – sell.html (Sell Your Clubs)  
+     – reviews.html (Reviews)  
+     – faqs.html (FAQ’s)  
+     – gallery.html (Gallery)  
+     – contact.html (Contact Us)  
+     – privacy.html (Privacy Policy)  
+     – terms.html (Terms & Conditions)  [oai_citation_attribution:0‡MDN Web Docs](https://developer.mozilla.org/en-US/docs/Glossary/Semantics?utm_source=chatgpt.com)  
+
+2. Semantic HTML5 & Responsive Layout  
+   • Use semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) throughout  [oai_citation_attribution:1‡W3Schools.com](https://www.w3schools.com/html/html5_semantic_elements.asp?utm_source=chatgpt.com).  
+   • Implement mobile‑first CSS with CSS Grid/Flexbox and CSS custom properties for theme variables (`--primary-color`, `--accent-color`, `--font-serif`)  [oai_citation_attribution:2‡MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties?utm_source=chatgpt.com).  
+
+3. Performance Optimizations  
+   • Lazy‑load offscreen images via `loading="lazy"` on `<img>` tags  [oai_citation_attribution:3‡MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/Lazy_loading?utm_source=chatgpt.com).  
+   • Serve responsive images using `srcset` and `sizes` (or `<picture>`) to match device resolutions  [oai_citation_attribution:4‡MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset?utm_source=chatgpt.com) [oai_citation_attribution:5‡MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/picture?utm_source=chatgpt.com).  
+   • Preload critical LCP images (`<link rel="preload" as="image" href="…">`) and convert assets to WebP/AVIF .  
+   • Minify and concatenate CSS/JS; defer non‑critical scripts; enable HTTP caching.  
+
+4. Accessibility & ARIA  
+   • Conform to WCAG 2.1 AA: descriptive alt text, proper labels, focus styles, and keyboard navigability  [oai_citation_attribution:6‡W3C](https://www.w3.org/WAI/WCAG22/quickref/?utm_source=chatgpt.com) [oai_citation_attribution:7‡WebAIM](https://webaim.org/techniques/alttext/?utm_source=chatgpt.com).  
+   • Add ARIA landmarks and roles (`role="banner"`, `role="navigation"`, `role="main"`, `aria-expanded`, `aria-pressed`) to dynamic widgets  [oai_citation_attribution:8‡Google Cloud](https://cloud.google.com/recaptcha/docs/best-practices-oat?utm_source=chatgpt.com).  
+
+5. SEO & Structured Data  
+   • Add unique `<title>` and `<meta name="description">` (120–155 chars, actionable, focus “Golf Club Repair”)  [oai_citation_attribution:9‡Yoast](https://yoast.com/meta-descriptions/?utm_source=chatgpt.com).  
+   • Include Open Graph and Twitter Card meta tags for rich social shares  [oai_citation_attribution:10‡Google for Developers](https://developers.google.com/search/docs/crawling-indexing/special-tags?utm_source=chatgpt.com).  
+   • Inject JSON‑LD `Product`, `Organization`, and `BreadcrumbList` schemas per schema.org standards  [oai_citation_attribution:11‡Schema.org](https://schema.org/Product?utm_source=chatgpt.com) [oai_citation_attribution:12‡JSONLD.COM](https://jsonld.com/product/?utm_source=chatgpt.com).  
+
+6. UX & Navigation Enhancements  
+   • Implement a sticky header (`position: sticky`) for persistent nav .  
+   • Build filters and accordions in HTML first, then enhance with JS for progressive enhancement  [oai_citation_attribution:13‡MDN Web Docs](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement?utm_source=chatgpt.com).  
+   • Ensure filter sidebar still works with JS disabled.  
+
+7. Dynamic Forms & Spam Protection  
+   • Build contact and trade‑in forms with conditional fields (“Last regrip date” if Regrip chosen; “Shaft flex” & “Budget” if Shaft Replacement) ‡Biz Talk's transcript - Unknown.txt](file-service://file-GmoKAwv5GQBQ1g4kG3rvaM).  
+   • Add Google reCAPTCHA v3 or a honeypot field to all forms, per Google’s best practices  [oai_citation_attribution:15‡Google for Developers](https://developers.google.com/recaptcha/docs/v3?utm_source=chatgpt.com) [oai_citation_attribution:16‡Google Cloud](https://cloud.google.com/recaptcha/docs/best-practices-oat?utm_source=chatgpt.com).  
+
+8. QR Code Integration  
+   • Generate and embed a print‑ready QR code linking to contact.html in header/footer and clubhouse signage (≥2 cm² with quiet zone).  
+
+9. Build & Deployment Automation  
+   • Provide `README.md` documenting setup, brand variables, and deployment to GitHub Pages/Netlify.  
+   • Include npm scripts or Makefile for build (`minify`, `bundle`, `serve`) and automated Lighthouse audits in CI.  
+
+10. Documentation & Best Practices  
+   • Comment code clearly and enforce linting (ESLint + accessibility plugin).  
+   • Ensure all fixes (lazy loading, ARIA, JSON‑LD, meta tags) are baked into reusable components so the site self‑enforces best practices on every page.
+
+Follow this prompt to generate a pixel‑perfect, high‑performance, fully accessible, SEO‑optimized Boppa Golf site that not only replicates but surpasses golfplugg.com.

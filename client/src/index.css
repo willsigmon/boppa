@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Custom Properties for Theming
+  ------------------------------ 
+  Boppa Golf Website Theme Variables
+*/
+:root {
+  /* Brand Colors */
+  --primary-color: 222 97% 63%;         /* Main brand blue */
+  --primary-dark: 222 97% 53%;          /* Darker shade of blue for hover states */
+  --primary-light: 222 97% 73%;         /* Lighter shade of blue for backgrounds */
+  --accent-color: 120 78% 36%;          /* Green accent (golf green) */
+  --accent-light: 120 78% 90%;          /* Light green for subtle backgrounds */
+  
+  /* Neutral Colors */
+  --neutral-900: 220 20% 10%;           /* Darkest gray - nearly black */
+  --neutral-800: 220 16% 22%;           /* Very dark gray */
+  --neutral-700: 220 14% 33%;           /* Dark gray */
+  --neutral-600: 220 12% 43%;           /* Medium-dark gray */
+  --neutral-500: 220 10% 53%;           /* Medium gray */
+  --neutral-400: 220 8% 64%;            /* Medium-light gray */
+  --neutral-300: 220 6% 83%;            /* Light gray */
+  --neutral-200: 220 5% 91%;            /* Very light gray */
+  --neutral-100: 220 5% 97%;            /* Nearly white */
+  
+  /* Fonts */
+  --font-sans: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  
+  /* Sizes */
+  --header-height: 5rem;
+  --footer-padding: 3rem;
+  --container-padding: 1rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  
+  /* Z-index layers */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal: 1040;
+  --z-tooltip: 1050;
+  
+  /* Animation */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+  
+  /* Base UI Colors (for shadcn components) */
+  --background: 0 0% 100%;
+  --foreground: var(--neutral-900);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-500);
+  --popover: 0 0% 100%;
+  --popover-foreground: var(--neutral-900);
+  --card: 0 0% 100%;
+  --card-foreground: var(--neutral-900);
+  --border: var(--neutral-200);
+  --input: var(--neutral-200);
+  
+  --primary: var(--primary-color);
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: var(--neutral-100);
+  --secondary-foreground: var(--neutral-900);
+  
+  --accent: var(--accent-color);
+  --accent-foreground: var(--neutral-100);
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: var(--primary-color);
+  --radius: var(--radius-md);
+}
+
+.dark {
+  --background: var(--neutral-900);
+  --foreground: var(--neutral-100);
+  --muted: var(--neutral-800);
+  --muted-foreground: var(--neutral-400);
+  --popover: var(--neutral-800);
+  --popover-foreground: var(--neutral-100);
+  --card: var(--neutral-800);
+  --card-foreground: var(--neutral-100);
+  --border: var(--neutral-700);
+  --input: var(--neutral-700);
+  --primary: hsl(var(--primary-light));
+  --primary-foreground: var(--neutral-900);
+  --secondary: var(--neutral-800);
+  --secondary-foreground: var(--neutral-100);
+  --accent: hsl(var(--accent-light));
+  --accent-foreground: var(--neutral-900);
+  --destructive: 0 62% 30%;
+  --destructive-foreground: var(--neutral-100);
+  --ring: hsl(var(--primary-color));
+}
+
+/* Ensure the site is responsive on all devices */
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+@layer base {
+  /* Box sizing rules for all elements */
+  *,
+  *::before,
+  *::after {
+    @apply border-border;
+    box-sizing: inherit;
+  }
+  
+  /* Remove default margin and padding */
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set core body defaults */
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  /* Focus styles for keyboard navigation */
+  a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid hsl(var(--primary-color));
+    outline-offset: 2px;
+  }
+  
+  /* Skip to content link - accessibility */
+  .skip-to-content {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: hsl(var(--primary-color));
+    color: white;
+    padding: 8px;
+    z-index: var(--z-tooltip);
+    transition: top 0.3s ease;
+  }
+  
+  .skip-to-content:focus {
+    top: 0;
+  }
+  
+  /* Make images responsive by default */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Primary button */
+  .btn-primary {
+    @apply bg-primary text-white font-medium py-2 px-4 rounded-md 
+           hover:bg-primary/90 transition-colors duration-300
+           focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  /* Secondary button */
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground font-medium py-2 px-4 rounded-md
+           border border-secondary hover:bg-secondary/80 transition-colors duration-300
+           focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  /* Container with responsive padding */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Section headings */
+  .section-title {
+    @apply text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-6 sm:mb-8;
+  }
+  
+  /* Card component */
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden border border-gray-100;
+  }
+  
+  /* Badge component */
+  .badge {
+    @apply inline-flex items-center rounded-full text-xs font-medium px-2.5 py-0.5;
+  }
+  .badge-primary {
+    @apply bg-primary/10 text-primary;
+  }
+  .badge-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+  
+  /* Responsive grid layouts */
+  .grid-auto-fit {
+    @apply grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  }
+}
